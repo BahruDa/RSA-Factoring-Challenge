@@ -11,7 +11,7 @@ check_factor()
                 do
                         if [ $count -gt 1 ];
                         then
-                                num2=$(echo $a*$num2 | bc)
+                                num2=$(echo $a*$num2)
                         fi
                         count=$((count + 1))
                 done
@@ -20,9 +20,9 @@ check_factor()
         fi
 
         num1=$2
-        num=$(echo "$1" | tr ':' '=')
+        num=$(echo "$1" ':' '=')
 
-        result=$(echo "if($num2 > $num1) 1 else 0" | bc)
+        result=$(echo "if($num2 > $num1) 1 else 0")
 	        if ((result == 1)); then
 		        numcp=$num1
 		        num1=$num2
